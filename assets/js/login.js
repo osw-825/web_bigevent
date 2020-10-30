@@ -28,10 +28,7 @@ $(function() {
     // 注册事件
     $("#reg-form").on("submit", function(e) {
         e.preventDefault();
-        var data = {
-            username: $('.reg-box [name="username"]').val(),
-            password: $('.reg-box [name="password"]').val()
-        }
+        var data = $(this).serialize();
         $.post('/api/reguser', data, function(res) {
             if (res.status !== 0) {
                 return layer.msg(res.message)
@@ -49,7 +46,6 @@ $(function() {
             method: 'POST',
             data: $(this).serialize(),
             success: function(res) {
-
                 if (res.status !== 0) {
                     return layer.msg("登录失败");
                 }
