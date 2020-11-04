@@ -42,7 +42,6 @@ $(function() {
                     return layer.msg('更新用户信息失败！')
                 }
                 layer.msg('更新用户信息成功！')
-
                 window.parent.getUserInfo();
             }
         })
